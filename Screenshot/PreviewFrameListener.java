@@ -15,10 +15,14 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageTranscoder;
 import javax.swing.JPanel;
+
+import shareJ.FileHandler;
 
 public class PreviewFrameListener extends MouseAdapter implements KeyListener, MouseMotionListener, ClipboardOwner {
 	
@@ -69,21 +73,12 @@ public class PreviewFrameListener extends MouseAdapter implements KeyListener, M
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
     	pp.partialImage = pp.robot.createScreenCapture(pp.selection);
-    	try {
-			ImageIO.write(pp.partialImage, "png", new File("test"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+//    	Path p = Paths.get(System.getProperty("user.dir"), Screenshot.format);
+//		File f = p.toFile();
+//			ImageIO.write(pp.partialImage, Screenshot.format, f);
+		FileHandler.saveScreenshotOperation(pp.partialImage);
     	pf.dispose();
 		
-    	try {
-			ImageIO.write(pp.partialImage, Screenshot.format, new File(Screenshot.filename()));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
         ImageTransferable trans = new ImageTransferable(pp.partialImage);
         
         Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();

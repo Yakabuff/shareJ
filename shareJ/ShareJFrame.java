@@ -16,6 +16,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import Tray.ExitListener;
 import Tray.MainWindowStateListener;
 import Tray.OpenListener;
+import Tray.ssfullListener;
+import Tray.ssselectionListener;
 
 public class ShareJFrame extends JFrame {
     public static TrayIcon trayIcon;
@@ -48,6 +50,12 @@ public class ShareJFrame extends JFrame {
         
         open.addActionListener(new OpenListener(this));
         
+        MenuItem screenshotSelection = new MenuItem("Capture Selection");
+        MenuItem screenshotFullscreen = new MenuItem("Capture Fullscreen");
+        screenshotSelection.addActionListener(new ssselectionListener());
+        screenshotFullscreen.addActionListener(new ssfullListener());
+        popup.add(screenshotFullscreen);
+        popup.add(screenshotSelection);
         trayIcon=new TrayIcon(image, "SystemTray Demo", popup);
         trayIcon.setImageAutoSize(true);
         
