@@ -13,7 +13,7 @@ Java ShareX clone
 - Puts image on clipboard
 - Minimize to tray
 
-##To-do
+## To-do
 
 - Upload to imgur/Google Drive/FTP server
 - Screenshot editing (draw/highlight/annotate)
