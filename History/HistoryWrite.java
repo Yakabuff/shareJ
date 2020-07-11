@@ -26,7 +26,7 @@ public class HistoryWrite {
        
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(DatabaseCreate.url);
+            conn = DriverManager.getConnection(Database.url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class DatabaseCreate {
+public class Database {
 	static String url = "jdbc:sqlite:"+"/home/jon/eclipse-workspace/shareJ/"+"history.db";
 	static 		Path p = Paths.get(System.getProperty("user.dir"), "history.db");
 	public static void createDB() {

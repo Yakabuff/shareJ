@@ -1,5 +1,6 @@
 package shareJ;
 
+import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import MainGui.MainPanel;
 import Tray.ExitListener;
 import Tray.MainWindowStateListener;
 import Tray.OpenListener;
@@ -25,7 +27,15 @@ public class ShareJFrame extends JFrame {
     
     public ShareJFrame() {
     	super("ShareJ");
+    	init();
     	initTray();
+    }
+    void init() {
+
+    	MainPanel mp = new MainPanel();
+    	this.add(mp);
+
+    	
     }
     
     void initTray() {

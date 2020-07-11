@@ -1,6 +1,6 @@
 package shareJ;
 
-import History.DatabaseCreate;
+import History.Database;
 import History.HistoryWrite;
 
 public class Start {
@@ -9,7 +9,7 @@ public class Start {
 	public static void main(String args[]) {
 		shareJ.init();
 		System.out.println(System.getProperty("user.dir"));
-		DatabaseCreate.DBInit();
+		Database.DBInit();
 
 
 	}

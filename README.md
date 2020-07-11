@@ -12,6 +12,7 @@ Java ShareX clone
 - Stores screenshots on disk
 - Puts image on clipboard
 - Minimize to tray
+- SQLite database storing image history
 
 ## To-do
 

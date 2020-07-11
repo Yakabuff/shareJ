@@ -11,6 +11,7 @@ import java.time.Month;
 import javax.imageio.ImageIO;
 
 import History.HistoryWrite;
+import MainGui.RecentScreenshotPanel;
 import Screenshot.Screenshot;
 
 public class FileHandler {
@@ -48,6 +49,7 @@ public class FileHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		RecentScreenshotPanel.updateHistory();
 	}
 
 	public static void preOperationCheck() {
