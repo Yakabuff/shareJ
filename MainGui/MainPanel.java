@@ -12,6 +12,7 @@ import Screenshot.PreviewPanel;
 
 public class MainPanel extends JPanel{
 	BoxLayout mainLayout = new BoxLayout(this,BoxLayout.LINE_AXIS);
+
 	public MainPanel(){
 		super();
 		this.setLayout(mainLayout);

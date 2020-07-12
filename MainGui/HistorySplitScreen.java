@@ -8,6 +8,9 @@ import org.sqlite.Function.Window;
 
 public class HistorySplitScreen extends JSplitPane {
 	
+	public static RecentScreenshotPanel rsp;
+	public static RecentScreenshotPreviewPanel rspp;
+	
 	public HistorySplitScreen(int horizontalSplit) {
 		super(horizontalSplit);
 		
@@ -15,9 +18,9 @@ public class HistorySplitScreen extends JSplitPane {
 	}
 	
 	void init() {
-		RecentScreenshotPanel rsp = new RecentScreenshotPanel();
+		rsp = new RecentScreenshotPanel();
 		this.setLeftComponent(rsp);
-		RecentScreenshotPreviewPanel rspp = new RecentScreenshotPreviewPanel("/home/jon/eclipse-workspace/shareJ/src/shareJ/Hips.png");
+		rspp = new RecentScreenshotPreviewPanel("/home/jon/eclipse-workspace/shareJ/src/shareJ/Hips.png");
 		this.setRightComponent(rspp);
 		this.setOneTouchExpandable(true);
 		

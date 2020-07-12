@@ -50,4 +50,18 @@ public class RecentScreenshotPreviewPanel extends JPanel {
         g.drawImage(preview, 0, 0, this.getWidth(), this.getHeight(), this);
         
     }
+    
+    public void updatePanel(String path) {
+    	this.path = path+".png";
+    	System.out.println(this.path);
+		try {
+			preview = ImageIO.read(new File(path));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	this.repaint();
+    }
+    
+
 }

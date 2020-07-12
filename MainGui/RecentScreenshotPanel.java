@@ -27,6 +27,7 @@ public class RecentScreenshotPanel extends JPanel {
 	
 	BoxLayout boxlayout;
 	static DefaultListModel listModel;
+	public static JList list;
 	public RecentScreenshotPanel() {
 		super();
 		boxlayout = new BoxLayout(this, BoxLayout.Y_AXIS);
@@ -41,7 +42,7 @@ public class RecentScreenshotPanel extends JPanel {
 //		listModel.addElement("John Smith");
 //		listModel.addElement("Kathy Green");
 		this.getHistory();
-		JList list = new JList(listModel);
+		list = new JList(listModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setLayoutOrientation(JList.VERTICAL);
 
@@ -53,7 +54,7 @@ public class RecentScreenshotPanel extends JPanel {
 		this.add(scrollPane);
 		
 		ListSelectionModel listSelectionModel = list.getSelectionModel();
-		listSelectionModel.addListSelectionListener(new HistoryListSelectionHandler());
+		list.addKeyListener(new HistoryListKeyListener());
 	}	
 	
     private ListCellRenderer<? super String> getRenderer() {
