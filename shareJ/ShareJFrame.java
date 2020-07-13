@@ -1,5 +1,6 @@
 package shareJ;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.MenuItem;
@@ -31,7 +32,7 @@ public class ShareJFrame extends JFrame {
     	initTray();
     }
     void init() {
-
+    	this.setMinimumSize(new Dimension(900, 500));
     	MainPanel mp = new MainPanel();
     	this.add(mp);
 

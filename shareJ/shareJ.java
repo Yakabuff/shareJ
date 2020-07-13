@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 
-import Buttons.ButtonManager;
+import MainGui.ButtonManager;
 import Screenshot.ScreenshotFullscreen;
 
 public class shareJ {

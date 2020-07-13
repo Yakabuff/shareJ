@@ -24,7 +24,7 @@ import History.HistoryItem;
 import History.HistoryQuery;
 
 public class RecentScreenshotPanel extends JPanel {
-	
+	static int MAX_HISTORY_PREVIEW = 90;
 	BoxLayout boxlayout;
 	static DefaultListModel listModel;
 	public static JList list;
@@ -35,12 +35,10 @@ public class RecentScreenshotPanel extends JPanel {
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		JLabel label = new JLabel("History");
 		this.add(label);
-		
-		
+
+
 		listModel = new DefaultListModel();
-//		listModel.addElement("Jane Doe");
-//		listModel.addElement("John Smith");
-//		listModel.addElement("Kathy Green");
+
 		this.getHistory();
 		list = new JList(listModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -49,41 +47,55 @@ public class RecentScreenshotPanel extends JPanel {
 
 		list.setCellRenderer(getRenderer());
 		this.add(list);
-		
+
 		JScrollPane scrollPane = new JScrollPane(list);
 		this.add(scrollPane);
-		
+
 		ListSelectionModel listSelectionModel = list.getSelectionModel();
-		list.addKeyListener(new HistoryListKeyListener());
+		list.addKeyListener(new HistoryListListener());
+		list.addMouseListener(new HistoryListListener());
 	}	
-	
-    private ListCellRenderer<? super String> getRenderer() {
-        return new DefaultListCellRenderer(){
-            @Override
-            public Component getListCellRendererComponent(JList<?> list,
-                    Object value, int index, boolean isSelected,
-                    boolean cellHasFocus) {
-                JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected,cellHasFocus);
-                listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
-                return listCellRendererComponent;
-            }
-        };
-    }
-    
-    public static void getHistory() {
+
+	private ListCellRenderer<? super String> getRenderer() {
+		return new DefaultListCellRenderer(){
+			@Override
+			public Component getListCellRendererComponent(JList<?> list,
+					Object value, int index, boolean isSelected,
+					boolean cellHasFocus) {
+				JLabel listCellRendererComponent = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected,cellHasFocus);
+				listCellRendererComponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
+				return listCellRendererComponent;
+			}
+		};
+	}
+
+	public static void getHistory() {
 
 		HistoryItem hi = HistoryQuery.getAllHistory();
-		for(int i =0; i < hi.getCount(); i++) {
-			listModel.addElement(hi.getPath().get(i));
+		if(hi.getCount()>0) {
+			for(int i = hi.getCount()-1; i >=0; i--) {
+				if(i <= MAX_HISTORY_PREVIEW) {
+					listModel.addElement(hi.getPath().get(i));
+				}
+			}
 		}
-    }
-    
-    public static void updateHistory() {
+	}
+
+	public static void updateHistory() {
 		HistoryItem hi = HistoryQuery.getAllHistory();
-		for(int i = hi.getCount()-1; i < hi.getCount(); i++) {
-			listModel.addElement(hi.getPath().get(i));
+		if(hi.getCount() == 0) {
+			listModel.addElement(0);
+		}else {
+
+
+				if(hi.getCount() <= MAX_HISTORY_PREVIEW) {
+					listModel.add(0,hi.getPath().get(hi.getCount()-1));
+				}else {
+					listModel.add(0,hi.getPath().get(hi.getCount()-1));
+					listModel.removeElementAt(listModel.getSize()-1);
+				}
+			
 		}
-    }
-    
-    
+	}
+
 }

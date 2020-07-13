@@ -8,17 +8,18 @@ import java.sql.SQLException;
 
 public class HistoryWrite {
 	
-    public static void insert(String path, String date) {
-        String sql = "INSERT INTO History(path, date) VALUES(?,?)";
+    public static void insert(String path, String dateTime) {
+        String sql = "INSERT INTO History(path,date) VALUES(?, ?)";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, path);
-            pstmt.setString(2, date);
+            pstmt.setString(2, dateTime);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
     }
     
     private static Connection connect() {

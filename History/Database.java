@@ -31,7 +31,7 @@ public class Database {
 	        String sql = "CREATE TABLE IF NOT EXISTS History (\n"
 	                + "	id integer PRIMARY KEY,\n"
 	                + "	path text NOT NULL,\n"
-	                + " date TEXT NOT NULL"
+	                + " date text"
 	                + ");";
 	        
 	        try (Connection conn = DriverManager.getConnection(url);

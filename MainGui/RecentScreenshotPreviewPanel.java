@@ -27,8 +27,8 @@ public class RecentScreenshotPreviewPanel extends JPanel {
 		this.path = path;
 
 		
-		boxlayout = new BoxLayout(this, BoxLayout.Y_AXIS);
-		this.setLayout(boxlayout);
+//		boxlayout = new BoxLayout(this, BoxLayout.Y_AXIS);
+//		this.setLayout(boxlayout);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 //		this.setMinimumSize(new Dimension(9000,1000));
 //		this.setMaximumSize(new Dimension(600,600));
@@ -52,7 +52,7 @@ public class RecentScreenshotPreviewPanel extends JPanel {
     }
     
     public void updatePanel(String path) {
-    	this.path = path+".png";
+    	this.path = path;
     	System.out.println(this.path);
 		try {
 			preview = ImageIO.read(new File(path));

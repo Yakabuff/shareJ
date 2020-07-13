@@ -26,8 +26,8 @@ public class HistorySplitScreen extends JSplitPane {
 		
 	
 	    rsp.setMinimumSize( new Dimension(200 , this.getHeight()));
-	    rsp.setMaximumSize(new Dimension(500 , this.getHeight()));
-	    rspp.setMinimumSize( new Dimension(500 , this.getHeight()));
+	    rsp.setMaximumSize(new Dimension(1000 , this.getHeight()));
+	    rspp.setMinimumSize( new Dimension(300 , this.getHeight()));
 	    
 	    this.setDividerLocation(300);
 	    this.setDividerSize(10);

@@ -1,4 +1,4 @@
-package Buttons;
+package MainGui;
 
 public class ButtonManager {
 	

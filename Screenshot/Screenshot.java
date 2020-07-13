@@ -28,8 +28,8 @@ static LocalTime lt;
 	}
 	
 	public abstract void setupKeybinds();
-	public static String filename() {
-		return ld.now() +" "+ lt.now();
+	public static String dateTime() {
+		return ld.now() +"_"+ lt.now();
 	}
 	
 //	public void takeScreenshotFullScreen(){

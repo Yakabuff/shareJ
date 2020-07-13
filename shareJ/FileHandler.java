@@ -39,12 +39,12 @@ public class FileHandler {
 
 	public static void saveScreenshotOperation(BufferedImage bf) {
 		preOperationCheck();
-		String filename = Screenshot.filename();
+		String filename = Screenshot.dateTime();
 		try {
-			Path p = Paths.get(System.getProperty("user.dir")+File.separator+"Screenshots"+File.separator+ld.getMonth().toString(), filename);
+			Path p = Paths.get(System.getProperty("user.dir")+File.separator+"Screenshots"+File.separator+ld.getMonth().toString(), filename+"."+Screenshot.format);
 			File f = p.toFile();
 			ImageIO.write(bf, Screenshot.format, f);
-			HistoryWrite.insert(p.toString(), filename);
+			HistoryWrite.insert(p.toString(), Screenshot.dateTime());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
