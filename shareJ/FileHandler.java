@@ -2,6 +2,7 @@ package shareJ;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,6 +14,8 @@ import javax.imageio.ImageIO;
 import History.HistoryWrite;
 import MainGui.RecentScreenshotPanel;
 import Screenshot.Screenshot;
+import Uploads.ImgurUpload;
+import org.apache.commons.codec.binary.Base64;
 
 public class FileHandler {
 
@@ -45,6 +48,7 @@ public class FileHandler {
 			File f = p.toFile();
 			ImageIO.write(bf, Screenshot.format, f);
 			HistoryWrite.insert(p.toString(), Screenshot.dateTime());
+			ImgurUpload upload = new ImgurUpload(p);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +59,21 @@ public class FileHandler {
 	public static void preOperationCheck() {
 		screenshotFolderHandler();
 		monthFolderHandler();
+	}
+
+	public static String getBase64(Path p){
+		String encodedBase64 = "";
+		try{
+			File f = p.toFile();
+			FileInputStream fileInputStreamReader = new FileInputStream(f);
+			byte[] bytes = new byte[(int)f.length()];
+			fileInputStreamReader.read(bytes);
+			encodedBase64 = new String(Base64.encodeBase64(bytes), "UTF-8");
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+
+		return encodedBase64;
 	}
 	
 }

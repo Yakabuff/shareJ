@@ -35,7 +35,6 @@ public class ShareJFrame extends JFrame {
     	this.setMinimumSize(new Dimension(900, 500));
     	MainPanel mp = new MainPanel();
     	this.add(mp);
-
     	
     }
     
