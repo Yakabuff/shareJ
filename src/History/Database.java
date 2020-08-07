@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 
 public class Database {
-	static String url = "jdbc:sqlite:"+"/home/jon/eclipse-workspace/shareJ/"+"history.db";
+	static String url = "jdbc:sqlite:"+"/"+System.getProperty("user.dir")+"/"+"history.db";
 	static 		Path p = Paths.get(System.getProperty("user.dir"), "history.db");
 	public static void createDB() {
     try (Connection conn = DriverManager.getConnection(url)) {

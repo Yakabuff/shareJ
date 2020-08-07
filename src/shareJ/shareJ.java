@@ -6,14 +6,17 @@ import java.util.logging.Logger;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 
-import MainGui.ButtonManager;
-import Screenshot.ScreenshotFullscreen;
-
 public class shareJ {
 	
 	public static final String NAME = "shareJ";
-	public static final String VERSION = "0.0.1";
+	public static String VERSION = "";
+
+	public static final int MAJOR = 0;
+	public static final int MINOR = 1;
+	public static final int REVISION = 0;
+	public static final String AUTHOR = "yakabuff";
 	public static ModuleManager mm;
+
 	public static void init() {
 		
 		Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
@@ -23,12 +26,20 @@ public class shareJ {
 		Window w = new Window();
 
 		mm = new ModuleManager();
+
+
 		try {
 			GlobalScreen.registerNativeHook();
+			GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
 		} catch (NativeHookException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		GlobalScreen.addNativeKeyListener(new GlobalKeyListener());
+
+	}
+
+	static{
+		VERSION = MAJOR + "." + MINOR + "." + REVISION;
+		System.out.println("shareJ V" + VERSION);
 	}
 }

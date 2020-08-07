@@ -1,6 +1,8 @@
 # shareJ
 Java ShareX clone
 
+![shareJ](docs/showcase.png)
+
 ## Installation
 
 ```java -jar shareJ_v0.0.1.jar```
@@ -13,10 +15,11 @@ Java ShareX clone
 - Puts image on clipboard
 - Minimize to tray
 - SQLite database storing image history
+- Upload to Imgur
 
 ## To-do
 
-- Upload to imgur/Google Drive/FTP server
+- Upload to your own server
 - Screenshot editing (draw/highlight/annotate)
 - Custom keybinds
 - Show screenshot history 

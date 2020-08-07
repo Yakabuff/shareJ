@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import shareJ.Window;
+import shareJ.shareJ;
 
 public class About implements ActionListener {
 
@@ -22,8 +23,8 @@ public class About implements ActionListener {
 			a.setLayout(new GridLayout(0, 1));
 			a.setSize(300, 300);
 			JLabel label = new JLabel("ShareJ");
-			JLabel label2 = new JLabel("version 0.0.1");
-			JLabel label3 = new JLabel("Author: yakabuff");
+			JLabel label2 = new JLabel(shareJ.VERSION);
+			JLabel label3 = new JLabel("Author: "+shareJ.AUTHOR);
 			a.add(label);
 			a.add(label2);
 			a.add(label3);

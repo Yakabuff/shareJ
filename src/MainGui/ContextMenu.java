@@ -1,15 +1,14 @@
 package MainGui;
 
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 public class ContextMenu extends JPopupMenu {
-    public ContextMenu(List<String> list){
-        super();
 
-        for(String s: list){
-            this.add(s);
-        }
+    public ContextMenu(){
+        super();
 
     }
 

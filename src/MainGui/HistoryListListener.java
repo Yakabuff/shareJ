@@ -1,5 +1,6 @@
 package MainGui;
 
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -60,10 +61,26 @@ public class HistoryListListener implements KeyListener, MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		String path = RecentScreenshotPanel.listModel.get(RecentScreenshotPanel.list.getSelectedIndex()).toString();
-		System.out.println(path);
-		HistorySplitScreen.rspp.updatePanel(path);
-		
+
+
+		if(arg0.getButton()== MouseEvent.BUTTON1) {
+			String path = RecentScreenshotPanel.listModel.get(RecentScreenshotPanel.list.getSelectedIndex()).toString();
+			System.out.println(path);
+			HistorySplitScreen.rspp.updatePanel(path);
+		}
+
+		if(arg0.getButton()== MouseEvent.BUTTON3){
+			JList list = (JList) arg0.getSource();
+			int row = list.locationToIndex(arg0.getPoint());
+			list.setSelectedIndex(row);
+
+			HistoryListContextMenu hlcm = new HistoryListContextMenu();
+			hlcm.show(arg0.getComponent(), arg0.getX(), arg0.getY());
+
+			String path = RecentScreenshotPanel.listModel.get(RecentScreenshotPanel.list.getSelectedIndex()).toString();
+			System.out.println(path);
+			HistorySplitScreen.rspp.updatePanel(path);
+		}
 	}
 	
 }

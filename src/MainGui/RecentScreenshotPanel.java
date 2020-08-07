@@ -26,7 +26,7 @@ import History.HistoryQuery;
 public class RecentScreenshotPanel extends JPanel {
 	static int MAX_HISTORY_PREVIEW = 90;
 	BoxLayout boxlayout;
-	static DefaultListModel listModel;
+	public static DefaultListModel listModel;
 	public static JList list;
 	public RecentScreenshotPanel() {
 		super();
